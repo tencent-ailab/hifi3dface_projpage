@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>High-Fidelity 3D Digital Human Creation from RGB-D Selfies</title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="./jquery-3.5.1.min.js"></script>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        h1, h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        } 
+         
+        h1 {
+            font-size: 22pt; 
+        }
+        h2 {
+            font-size: 16pt;
+        }
+
+        p {
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .logo-title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .thick {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-weight: bolder;
+        }
+
+        .author-institute {
+            margin-top: 50px;
+            text-align: center;
+            font-size: x-large;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .abstract {
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .title {
+            margin-top: 50px;
+            color: #333333;
+        }
+
+        .title h1 {
+            font-weight: bolder;
+        }
+
+        .authors ul {
+            overflow: auto;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        li.author {
+            list-style-type: none;
+            float: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .author-name {
+            font-size: large;
+            color: #333333;
+            margin: 0;
+        }
+
+        .author-email {
+            font-size: medium;
+            color: #666666;
+        }
+
+        .open-source {
+            margin-top:50px;
+            margin-bottom: 50px;
+        }
+
+        .open-source ul {
+            overflow: auto;
+            margin-top: 30px;
+        }
+
+        .open-source li {
+            list-style-type: None;
+            float: left;
+            width: 33%;
+            text-align: center;
+        }
+
+        .open-source li a {
+            display: block;
+            width: 100%;
+            font-size: x-large;
+        }
+
+        .open-source li .glyphicon {
+            padding-right: 5px;
+        }
+
+        .clip {
+            margin-bottom: 40px;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="title">
+                <h1 style="text-align:center">High-Fidelity 3D Digital Human Creation from RGB-D Selfies</h1>
+
+                <div class="author-institute">
+                    <span><img src="figures/lablogo.png" alt="logo-AI-lab" width=120px></span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span><img src="figures/nextlogo.png" alt="logo-NExT" width=100px></span>
+                </div>
+
+                <div class="authors">
+                    <ul>
+                        <li class="author">
+                            <p class="author-name">Xiangkai Lin*, Yajing Chen*, Linchao Bao*, Haoxian Zhang, Sheng Wang,</p>
+                        </li>
+                        <li class="author">
+                            <p class="author-name">Xuefei Zhe, Xinwei Jiang, Jue Wang, Dong Yu, Zhengyou Zhang</p>
+                        </li>
+                        <li class="author">
+                            <p class="author-name">(*Equal Contribution)</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="open-source">
+                    <ul>
+                        <li>
+                            <a class="btn btn-info" target="_blank" href="https://arxiv.org/abs/2010.05562">
+                                <span class="glyphicon glyphicon-book"></span>
+                                <span>Paper</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn btn-warning" target="_blank" href="./files/hifi3dface-supp.pdf">
+                                <span class="glyphicon glyphicon-paperclip"></span>
+                                <span>Supplementary</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn btn-success" target="_blank" href="https://github.com/tencent-ailab/hifi3dface">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span>Code</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                
+                <div class="teaser figure">
+                    <img src="./figures/teaser.png" alt="teaser" width="100%">
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 style="margin-top:50px;">Abstract</h2>
+            <p class="abstract">
+We present a fully automatic system that can produce high-fidelity, photo-realistic 3D digital human characters with a consumer RGB-D selfie camera. The system only needs the user to take a short selfie RGB-D video while rotating his/her head, and can produce a high quality reconstruction in less than 30 seconds. Our main contribution is a new facial geometry modeling and reflectance synthesis procedure that significantly improves the state-of-the-art. Specifically, given the input video a two-stage frame selection algorithm is first employed to select a few high-quality frames for reconstruction. A novel, differentiable renderer based 3D Morphable Model (3DMM) fitting method is then applied to recover facial geometries from multiview RGB-D data, which takes advantages of extensive data generation and perturbation. Our 3DMM has much larger expressive capacities than conventional 3DMM, allowing us to recover more accurate facial geometry using merely linear bases. For reflectance synthesis, we present a hybrid approach that combines parametric fitting and CNNs to synthesize high-resolution albedo/normal maps with realistic hair/pore/wrinkle details. Results show that our system can produce faithful 3D characters with extremely realistic details. Code and the constructed 3DMM is publicly available.
+            </p>
+        </div>
+    </div>
+
+    <!--
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="video">
+                <h2>Overview Video (with Voice)</h2>
+ <video width="100%" controls>
+<source src="videos/overviewvideov3.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+            </div>
+        </div>
+    </div><!-- .row -->
+    -->
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="video">
+                <h2>Overview Video (with Voice)</h2>
+<iframe id="player1" width="800" height="450" src="https://www.youtube.com/embed/Z7c0e5vm6QY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-1">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-1">Bilibili</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="video">
+                <h2>Results</h2>
+
+<div class="clip">
+<iframe id="player2" width="800" height="450" src="https://www.youtube.com/embed/9_UfU8zNbEo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-2">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-2">Bilibili</button>
+            </div>
+</div><!--.clip -->
+
+<div class="clip">
+<iframe id="player3" width="800" height="450" src="https://www.youtube.com/embed/8HoNyrfGTKU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-3">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-3">Bilibili</button>
+            </div>
+</div><!--.clip -->
+
+<div class="clip">
+<iframe id="player4" width="800" height="450" src="https://www.youtube.com/embed/5Rgh72PL8Cc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-4">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-4">Bilibili</button>
+            </div>
+</div><!--.clip -->
+
+
+<div class="clip">
+<iframe id="player5" width="800" height="450" src="https://www.youtube.com/embed/ECREUAbbqLI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-5">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-5">Bilibili</button>
+            </div>
+</div><!--.clip -->
+
+<div class="clip">
+<iframe id="player6" width="800" height="450" src="https://www.youtube.com/embed/8FlFoIiCYVc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <div class="video-controller">
+                <button class="btn btn-lg btn-danger" id="btn-youtube-6">Youtube</button>
+                <button class="btn btn-lg btn-info" id="btn-bilibili-6">Bilibili</button>
+            </div>
+</div><!--.clip -->
+
+
+
+ <!--<video width="100%" controls>
+<source src="videos/seg0_zoom.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>--> 
+ <!--<video width="100%" controls>
+<source src="videos/seg1_results.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> -->
+ <!--<video width="100%" controls>
+<source src="videos/seg1_resultswithhair.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> -->
+<!--
+ <video width="100%" controls>
+<source src="videos/seg2_modelfree.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> -->
+ <!--<video width="100%" controls>
+<source src="videos/seg3_tts.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>-->
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="video">
+                <h2>Contact</h2>
+                <p>
+                    If you have any question, please contact <a href="http://linchaobao.github.io/">Linchao Bao</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="video">
+                <h2>Citation</h2>
+<pre><code>@article{hifi3dface2020tencentailab,
+  title={High-Fidelity 3D Digital Human Creation from RGB-D Selfies},
+  author={Lin, Xiangkai and Chen, Yajing and Bao, Linchao and Zhang, Haoxian and Wang, Sheng and Zhe, Xuefei and Jiang, Xinwei and Wang, Jue and Yu, Dong and Zhang, Zhengyou},
+  journal={arXiv preprint arXiv:2010.05562},
+  year={2020}
+}
+</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+$( document ).ready(function() {
+
+    // resize video to adjust the width of content
+    $('iframe').on("load", function() {
+        //$(this).height($(this).contents().height());
+        var w = $(this).parents(".video").width();
+        var h = w * 315 / 560;
+        console.log(w);
+        console.log(h);
+        $(this).width(w);
+        $(this).height(h);
+    });
+
+
+    // change source of videos
+    $('#btn-youtube-1').click(function() {
+        console.log('change to youtube src');
+        $('#player1').attr("src", "https://www.youtube.com/embed/Z7c0e5vm6QY");
+    });
+
+    $('#btn-bilibili-1').click(function() {
+        console.log('change to bilibili src');
+        $('#player1').attr("src", "http://player.bilibili.com/player.html?aid=797496848&bvid=BV1gy4y1r7R7&cid=245171969&page=1");
+    });
+
+    $('#btn-youtube-2').click(function() {
+        console.log('change to youtube src');
+        $('#player2').attr("src", "https://www.youtube.com/embed/9_UfU8zNbEo");
+    });
+
+    $('#btn-bilibili-2').click(function() {
+        console.log('change to bilibili src');
+        $('#player2').attr("src", "http://player.bilibili.com/player.html?aid=839947689&bvid=BV1e54y1R754&cid=245173015&page=1");
+    });
+
+    $('#btn-youtube-3').click(function() {
+        console.log('change to youtube src');
+        $('#player3').attr("src", "https://www.youtube.com/embed/8HoNyrfGTKU");
+    });
+
+    $('#btn-bilibili-3').click(function() {
+        console.log('change to bilibili src');
+        $('#player3').attr("src", "//player.bilibili.com/player.html?aid=329899102&bvid=BV1iA41177vV&cid=245174544&page=1");
+    });
+
+    $('#btn-youtube-4').click(function() {
+        console.log('change to youtube src');
+        $('#player4').attr("src", "https://www.youtube.com/embed/5Rgh72PL8Cc");
+    });
+
+    $('#btn-bilibili-4').click(function() {
+        console.log('change to bilibili src');
+        $('#player4').attr("src", "http://player.bilibili.com/player.html?aid=839923260&bvid=BV1454y1R7Au&cid=245174805&page=1");
+    });
+
+    $('#btn-youtube-5').click(function() {
+        console.log('change to youtube src');
+        $('#player5').attr("src", "https://www.youtube.com/embed/ECREUAbbqLI");
+    });
+
+    $('#btn-bilibili-5').click(function() {
+        console.log('change to bilibili src');
+        $('#player5').attr("src", "http://player.bilibili.com/player.html?aid=842411783&bvid=BV1f54y1k7Rm&cid=245175212&page=1");
+    });
+
+
+    $('#btn-youtube-6').click(function() {
+        console.log('change to youtube src');
+        $('#player6').attr("src", "https://www.youtube.com/embed/8FlFoIiCYVc");
+    });
+
+    $('#btn-bilibili-6').click(function() {
+        console.log('change to bilibili src');
+        $('#player6').attr("src", "http://player.bilibili.com/player.html?aid=842375110&bvid=BV1m54y1k79R&cid=245235315&page=1");
+    });
+
+});
+         
+    </script>
+
+         
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
