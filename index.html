@@ -22,7 +22,7 @@
     <style>
 
         h1, h2 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: Arial;
         } 
          
         h1 {
@@ -34,11 +34,11 @@
 
         p {
             font-size: large;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial;
         }
 
         .logo-title {
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: Arial;
         }
 
         .thick {
@@ -59,7 +59,7 @@
 
         .abstract {
             font-size: large;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial;
         }
 
         .title {
@@ -134,7 +134,8 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="title">
-                <h1 style="text-align:center">High-Fidelity 3D Digital Human Creation from RGB-D Selfies</h1>
+                <h1 style="text-align:center">High-Fidelity 3D Digital Human Head Creation from RGB-D Selfies</h1>
+                <h2 style="text-align:center">ACM Transactions on Graphics 2021</h2>
 
                 <div class="author-institute">
                     <span><img src="figures/lablogo.png" alt="logo-AI-lab" width=120px></span>
@@ -145,10 +146,10 @@
                 <div class="authors">
                     <ul>
                         <li class="author">
-                            <p class="author-name">Xiangkai Lin*, Yajing Chen*, Linchao Bao*, Haoxian Zhang, Sheng Wang,</p>
+                            <p class="author-name">Linchao Bao*, Xiangkai Lin*, Yajing Chen*, Haoxian Zhang*, Sheng Wang, Xuefei Zhe,</p>
                         </li>
                         <li class="author">
-                            <p class="author-name">Xuefei Zhe, Xinwei Jiang, Jue Wang, Dong Yu, Zhengyou Zhang</p>
+                            <p class="author-name">Di Kang, Haozhi Huang, Xinwei Jiang, Jue Wang, Dong Yu, Zhengyou Zhang</p>
                         </li>
                         <li class="author">
                             <p class="author-name">(*Equal Contribution)</p>
@@ -166,7 +167,7 @@
                         </li>
 
                         <li>
-                            <a class="btn btn-warning" target="_blank" href="./files/hifi3dface-supp.pdf">
+                            <a class="btn btn-warning" target="_blank" href="./files/tog2021_hifi3dface_supp.pdf">
                                 <span class="glyphicon glyphicon-paperclip"></span>
                                 <span>Supplementary</span>
                             </a>
@@ -194,7 +195,7 @@
         <div class="col-md-6">
             <h2 style="margin-top:50px;">Abstract</h2>
             <p class="abstract">
-We present a fully automatic system that can produce high-fidelity, photo-realistic 3D digital human characters with a consumer RGB-D selfie camera. The system only needs the user to take a short selfie RGB-D video while rotating his/her head, and can produce a high quality reconstruction in less than 30 seconds. Our main contribution is a new facial geometry modeling and reflectance synthesis procedure that significantly improves the state-of-the-art. Specifically, given the input video a two-stage frame selection algorithm is first employed to select a few high-quality frames for reconstruction. A novel, differentiable renderer based 3D Morphable Model (3DMM) fitting method is then applied to recover facial geometries from multiview RGB-D data, which takes advantages of extensive data generation and perturbation. Our 3DMM has much larger expressive capacities than conventional 3DMM, allowing us to recover more accurate facial geometry using merely linear bases. For reflectance synthesis, we present a hybrid approach that combines parametric fitting and CNNs to synthesize high-resolution albedo/normal maps with realistic hair/pore/wrinkle details. Results show that our system can produce faithful 3D characters with extremely realistic details. Code and the constructed 3DMM is publicly available.
+We present a fully automatic system that can produce high-fidelity, photo-realistic 3D digital human heads with a consumer RGB-D selfie camera. The system only needs the user to take a short selfie RGB-D video while rotating his/her head, and can produce a high quality head reconstruction in less than 30 seconds. Our main contribution is a new facial geometry modeling and reflectance synthesis procedure that significantly improves the state-of-the-art. Specifically, given the input video a two-stage frame selection procedure is first employed to select a few high-quality frames for reconstruction. Then a differentiable renderer based 3D Morphable Model (3DMM) fitting algorithm is applied to recover facial geometries from multiview RGB-D data, which takes advantages of a powerful 3DMM basis constructed with extensive data generation and perturbation. Our 3DMM has much larger expressive capacities than conventional 3DMM, allowing us to recover more accurate facial geometry using merely linear basis. For reflectance synthesis, we present a hybrid approach that combines parametric fitting and CNNs to synthesize high-resolution albedo/normal maps with realistic hair/pore/wrinkle details. Results show that our system can produce faithful 3D digital human faces with extremely realistic details. The main code and the newly constructed 3DMM basis is publicly available at <a href="https://github.com/tencent-ailab/hifi3dface" target="_blank">https://github.com/tencent-ailab/hifi3dface</a>. 
             </p>
         </div>
     </div>
@@ -204,7 +205,7 @@ We present a fully automatic system that can produce high-fidelity, photo-realis
         <div class="col-md-6">
             <div class="video">
                 <h2>Overview Video (with Voice)</h2>
-<iframe id="player1" width="800" height="450" src="https://www.youtube.com/embed/Z7c0e5vm6QY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="player1" width="800" height="450" src="https://www.youtube.com/embed/e9ti6mCnxLU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
             <div class="video-controller">
@@ -291,11 +292,11 @@ We present a fully automatic system that can produce high-fidelity, photo-realis
         <div class="col-md-6">
             <div class="video">
                 <h2>Citation</h2>
-<pre><code>@article{hifi3dface2020tencentailab,
-  title={High-Fidelity 3D Digital Human Creation from RGB-D Selfies},
-  author={Lin, Xiangkai and Chen, Yajing and Bao, Linchao and Zhang, Haoxian and Wang, Sheng and Zhe, Xuefei and Jiang, Xinwei and Wang, Jue and Yu, Dong and Zhang, Zhengyou},
-  journal={arXiv preprint arXiv:2010.05562},
-  year={2020}
+<pre><code>@article{hifi3dface2021tencentailab,
+  title={High-Fidelity 3D Digital Human Head Creation from RGB-D Selfies},
+  author={Bao, Linchao and Lin, Xiangkai and Chen, Yajing and Zhang, Haoxian and Wang, Sheng and Zhe, Xuefei and Kang, Di and Huang, Haozhi and Jiang, Xinwei and Wang, Jue and Yu, Dong and Zhang, Zhengyou},
+  journal={ACM Transactions on Graphics},
+  year={2021}
 }
 </code></pre>
             </div>
@@ -321,7 +322,7 @@ $( document ).ready(function() {
         // change source of videos
         $('#btn-youtube-1').click(function() {
             console.log('change to youtube src');
-            $('#player1').attr("src", "https://www.youtube.com/embed/Z7c0e5vm6QY");
+            $('#player1').attr("src", "https://www.youtube.com/embed/e9ti6mCnxLU");
         });
 
         $('#btn-bilibili-1').click(function() {
@@ -384,7 +385,7 @@ $( document ).ready(function() {
             $('#player5').attr("src", "https://player.bilibili.com/player.html?aid=842411783&bvid=BV1f54y1k7Rm&cid=245175212&page=1");
         });
     });
-
+    
     $("#player6").on("load", function() {
 
         $('#btn-youtube-6').click(function() {
